@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AT Command Tester online - test GSM/LTE modems in your browser (Web Serial)</title>
+<meta name="description" content="Free online AT command tester for GSM/LTE/NB-IoT modems and modules (SIMCOM, Quectel, u-blox...): send AT commands over a serial port from your browser, with a command reference, signal/operator dashboards and a script runner. No install, nothing uploaded.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>📶</text></svg>">
+<link rel="canonical" href="https://www.clearevo.com/at/">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H457QK43L6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H457QK43L6');
+</script>
+<link rel="stylesheet" href="xp.css">
+<link rel="stylesheet" href="at.css">
+</head>
+<body>
+
+<div class="window" id="app">
+  <div class="title-bar">
+    <div class="title-bar-text" id="titleText">AT Command Tester - ClearEvo</div>
+  </div>
+  <div class="window-body window-body-main">
+    <div class="toolbar">
+      <button id="btnConnect" title="Connect a real modem serial port (Web Serial)">📶 Connect</button>
+      <select id="selBaud"><option>9600</option><option selected>115200</option><option>230400</option><option>460800</option><option>921600</option></select>
+      <button id="btnDisconnect" disabled>Disconnect</button>
+      <div class="tb-sep"></div>
+      <button id="btnDemo" title="Simulated modem - not real hardware">▶ Demo modem (simulated)</button>
+      <div class="tb-sep"></div>
+      <button id="btnClear">Clear</button>
+      <span id="unsupported" class="warn" hidden>No Web Serial in this browser - real modems need Chrome/Edge desktop; the DEMO still works.</span>
+    </div>
+
+    <div class="panes">
+      <fieldset class="pane" id="paneCatalog">
+        <legend>Commands (click to send)</legend>
+        <div id="catalog"></div>
+      </fieldset>
+
+      <div class="midcol">
+        <fieldset class="pane consolePane">
+          <legend>Console</legend>
+          <pre id="console"></pre>
+          <div class="sendrow">
+            <input type="text" id="cmdInput" placeholder="Type AT command, Enter to send" autocomplete="off">
+            <button id="btnSend">Send</button>
+          </div>
+        </fieldset>
+        <fieldset class="pane" id="paneScript">
+          <legend>Script (one command per line, # = comment)</legend>
+          <textarea id="scriptBox" rows="4" spellcheck="false">AT
+ATI
+AT+CSQ
+AT+COPS?
+AT+CREG?</textarea>
+          <div class="sendrow">
+            <button id="btnRunScript">▶ Run script</button>
+            <label><input type="checkbox" id="chkContinue"> continue on error</label>
+            <span id="scriptStatus"></span>
+          </div>
+        </fieldset>
+      </div>
+
+      <fieldset class="pane" id="paneParsed">
+        <legend>Parsed status</legend>
+        <div class="parsed-item"><b>Signal</b>
+          <div class="sigbars" id="sigBars"></div>
+          <div id="sigText">-</div>
+        </div>
+        <div class="parsed-item"><b>Operator</b><div id="opText">-</div></div>
+        <div class="parsed-item"><b>Registration</b><div id="regText">-</div></div>
+        <p class="hint">Send AT+CSQ / AT+COPS? / AT+CREG? (or run the script) to fill this panel.</p>
+      </fieldset>
+    </div>
+
+    <div class="status-bar">
+      <p class="status-bar-field" id="sbConn">Disconnected</p>
+      <p class="status-bar-field">100% in-browser - nothing uploaded</p>
+      <p class="status-bar-field"><a href="https://www.clearevo.com/hyperterminal/" target="_blank" rel="noopener">need a plain terminal? HyperTerminal online</a></p>
+    </div>
+  </div>
+</div>
+
+<noscript><p style="color:#fff;padding:1em">AT Command Tester needs JavaScript.</p></noscript>
+<script>window.AT_VERSION='dev'</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
