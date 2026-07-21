@@ -18,3 +18,7 @@ Live at **https://www.clearevo.com/at/**
 ./build.sh           # content-hash build -> dist/
 ./push.sh            # build + deploy whole site via ../ykasidit.github.io/deploy.sh
 ```
+
+## License
+
+GPL v2, like the [Bluetooth GNSS](https://github.com/ykasidit/bluetooth_gnss) app - see [LICENSE](LICENSE).
