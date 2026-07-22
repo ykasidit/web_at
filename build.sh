@@ -35,6 +35,7 @@ done
 VERSION=$(git describe --tags --always --dirty 2>/dev/null || echo dev)
 sed -i "s|window.AT_VERSION='dev'|window.AT_VERSION='$VERSION'|" "$WORK/index.html"
 cp "$WORK/index.html" dist/
+cp "$WORK/manifest.json" "$WORK"/icon-*.png dist/
 
 ! grep -q "'./logic\.js'" dist/assets/app.*.js
 ! grep -q "'./catalog\.js'" dist/assets/app.*.js
