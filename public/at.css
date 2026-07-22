@@ -43,3 +43,11 @@ body, button, select, input, textarea, label, legend, fieldset,
 
 /* XP Luna title bars use Trebuchet MS bold; bundled pixel font as retro fallback */
 .title-bar-text { font-family: "Trebuchet MS", "Pixelated MS Sans Serif", Tahoma, sans-serif; }
+
+/* phone layout: console first, then catalog and parsed status stacked */
+@media (max-width: 700px) {
+  #app .window-body-main { overflow-y: auto; }
+  .panes { flex-direction: column; flex: none; }
+  .midcol { order: -1; flex: none; height: 45vh; }
+  #paneCatalog, #paneParsed { flex: none; max-height: 35vh; }
+}
