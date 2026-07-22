@@ -40,3 +40,6 @@ body, button, select, input, textarea, label, legend, fieldset,
 .hint { color: #777; padding: 4px; }
 .status-bar-field { padding: 1px 6px; }
 #sbConn.demo { color: #a00; font-weight: bold; }
+
+/* XP Luna title bars use Trebuchet MS bold; bundled pixel font as retro fallback */
+.title-bar-text { font-family: "Trebuchet MS", "Pixelated MS Sans Serif", Tahoma, sans-serif; }

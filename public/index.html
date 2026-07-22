@@ -20,12 +20,15 @@
 </script>
 <link rel="stylesheet" href="xp.css">
 <link rel="stylesheet" href="at.css">
+<style>/* font size controls (top right) */
+.title-bar .fontbtn{width:26px!important;height:16px;min-width:0!important;font:bold 10px Tahoma,sans-serif!important;color:#000;background:#ece9d8;border:1px solid #fff;border-radius:3px;cursor:pointer;padding:0!important;margin-left:3px;box-shadow:0 0 1px #003c74;background-image:none!important}
+</style>
 </head>
 <body>
 
 <div class="window" id="app">
   <div class="title-bar">
-    <div class="title-bar-text" id="titleText">AT Command Tester - ClearEvo</div>
+    <div class="title-bar-text" id="titleText">AT Command Tester - ClearEvo</div><div class="title-bar-controls"><button class="fontbtn" id="fMinus" type="button" title="smaller text">A-</button><button class="fontbtn" id="fPlus" type="button" title="larger text">A+</button></div>
   </div>
   <div class="window-body window-body-main">
     <div class="toolbar">
@@ -93,5 +96,12 @@ AT+CREG?</textarea>
 <noscript><p style="color:#fff;padding:1em">AT Command Tester needs JavaScript.</p></noscript>
 <script>window.AT_VERSION='dev'</script>
 <script type="module" src="app.js"></script>
+<script>/* zoom persisted per tool family */
+(function(){var z=+localStorage.getItem('ce_zoom')||100;
+var ap=function(){document.body.style.zoom=z+'%';try{localStorage.setItem('ce_zoom',z)}catch(e){}};
+document.getElementById('fMinus').onclick=function(){z=Math.max(60,z-10);ap();};
+document.getElementById('fPlus').onclick=function(){z=Math.min(200,z+10);ap();};
+ap();})();
+</script>
 </body>
 </html>
