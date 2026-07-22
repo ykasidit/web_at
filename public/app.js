@@ -7,7 +7,7 @@ const supported = 'serial' in navigator;
 if (!supported) $('unsupported').hidden = false;
 
 const VER = window.AT_VERSION || 'dev';
-$('titleText').textContent = `AT Command Tester [${VER}] - ClearEvo`;
+$('titleText').textContent = `📶 ClearEvo.com AT Command Tester [${VER}]`;
 
 // ---------- console ----------
 const conEl = $('console');
